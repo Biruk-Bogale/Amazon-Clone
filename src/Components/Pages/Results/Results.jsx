@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ProductUrl } from "../../../Api/EndPoints";
 import ProductCard from "../../Product/ProductCard";
-import "./results.css"
+import "./results.css";
 
 function Results() {
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
   const { catagoryName } = useParams();
 
   useEffect(() => {
@@ -28,6 +28,7 @@ function Results() {
           {results?.map((data) => (
             <ProductCard key={data.id} product={data} />
           ))}
+          {console.log(results)}
         </dir>
       </section>
     </LayOut>

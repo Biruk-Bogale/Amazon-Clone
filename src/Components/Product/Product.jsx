@@ -19,6 +19,7 @@ function Product() {
     <div className="product_container">
       {products?.map((data, i) => {
         return <ProductCard product={data} key={i} />;
+        console.log(data)
       })}
     </div>
   );

@@ -2,8 +2,9 @@ export const catagoryData = [
   {
     id: 1,
     title: "Men's clothing",
-    category: "Men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    category: "men's clothing",
+    image:
+      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
   },
 
   {
