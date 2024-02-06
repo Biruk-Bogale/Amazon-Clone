@@ -6,6 +6,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { BiCart } from "react-icons/bi";
 import "./header.css";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -14,9 +15,9 @@ function Header() {
         <div className="header__logo">
           {/* logo */}
 
-          <a href="/">
+          <Link to="/">
             <img src={Amazon_logo} alt="Amazon Logo" />
-          </a>
+          </Link>
 
           {/* delivery */}
 
@@ -50,22 +51,22 @@ function Header() {
             </select>
           </a>
 
-          <a href="">
+          <Link to="/auth">
             <div>
               <p>Sign In</p>
               <span>Account & Lists</span>
             </div>
-          </a>
+          </Link>
 
-          <a href="">
+          <Link to="/orders">
             <p>returns</p>
             <span>& Orders</span>
-          </a>
+          </Link>
 
-          <a href="" className="header__cart">
+          <Link to="/cart" className="header__cart">
             <BiCart size={35} />
             <span>0</span>
-          </a>
+          </Link>
         </div>
       </div>
 
