@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
+import "./product.css"
 
 function Product() {
   const [products, setProducts] = useState();
@@ -15,10 +16,10 @@ function Product() {
   console.log(products);
 
   return (
-    <div>
-      {/* {products.map((data) => {
-        return <ProductCard product={data} />;
-      })} */}
+    <div className="product_container">
+      {products?.map((data, i) => {
+        return <ProductCard product={data} key={i} />;
+      })}
     </div>
   );
 }
