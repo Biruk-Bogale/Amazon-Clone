@@ -14,7 +14,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<SignUP />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/catagory/:catagoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail />} />

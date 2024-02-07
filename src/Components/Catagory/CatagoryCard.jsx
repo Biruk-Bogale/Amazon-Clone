@@ -3,7 +3,7 @@ import "./catagory.css";
 import { Link } from "react-router-dom";
 
 function CatagoryCard({ data }) {
-  console.log(data)
+  // console.log(data)
   function trunc(str, n) {
     return str?.length > n ? str.substr(0, n) + "..." : str;
   }
