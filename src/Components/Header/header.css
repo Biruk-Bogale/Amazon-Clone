@@ -207,8 +207,8 @@ span {
 }
 
 .header__lower li:hover {
-  padding: 7px;
-  border: 1px solid white;
+  padding: 6px;
+  border: 0.5px solid white;
 }
 
 @media screen and (max-width: 576px) {
