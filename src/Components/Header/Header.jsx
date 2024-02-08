@@ -15,7 +15,7 @@ function Header() {
   console.log(basket.length);
 
   return (
-    <section>
+    <section className="header_fixed">
       <div className="header__container">
         <div className="header__logo">
           {/* logo */}
@@ -69,7 +69,7 @@ function Header() {
           </Link>
 
           <Link to="/cart" className="header__cart">
-            <BiCart size={35} />
+            <BiCart size={50} />
             <span>{basket.length}</span>
           </Link>
         </div>

@@ -8,6 +8,8 @@
   color: white;
 }
 
+
+
 /* header logo starts */
 .header__logo {
   display: flex;
@@ -157,16 +159,18 @@ span {
 /* header__cart start */
 .header__cart {
   position: relative;
+  width: 60px;
+  
 }
 
 .header__cart span {
   position: absolute;
-  top: -3px;
+  top: -1px;
   color: orange;
-  left: 15px;
+  left: 24px;
   font-weight: bold;
   background-color: #131921;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /* header__cart end */
@@ -240,4 +244,10 @@ span {
     border: 1px solid white;
     padding: -2px;
   }
+}
+
+.header_fixed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
