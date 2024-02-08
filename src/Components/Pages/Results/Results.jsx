@@ -38,7 +38,11 @@ function Results() {
 
           <dir className="results_container">
             {results?.map((data) => (
-              <ProductCard key={data.id} product={data} />
+              <ProductCard 
+              key={data.id} 
+              product={data} 
+              add_description={true}
+              add_button={true}/>
             ))}
             {/* {console.log(results)} */}
           </dir>
