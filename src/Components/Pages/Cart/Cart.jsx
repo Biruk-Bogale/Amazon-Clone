@@ -5,6 +5,8 @@ import ProductCard from "../../Product/ProductCard";
 import CurrencyFormat from "../../CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import "./cart.css";
+import { Type } from "../../../Utility/action.type";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 function Cart() {
   const [{ basket, user }, dispatch] = useContext(DataContext);
@@ -13,7 +15,21 @@ function Cart() {
     return item.price * item.amount + amount;
   }, 0);
 
-  console.log(basket)
+  // console.log(basket);
+
+  const incri = (item) => {
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item,
+    });
+  };
+
+  const decri = (id) => {
+    dispatch({
+      type: Type.REMOVE_FROM_BASKET,
+      id,
+    });
+  };
 
   return (
     <LayOut>
@@ -27,13 +43,24 @@ function Cart() {
           ) : (
             basket?.map((item, i) => {
               return (
-                <ProductCard
-                  key={i}
-                  product={item}
-                  flex={true}
-                  add_description={true}
-                  add_button={false}
-                />
+                <section className="cart_product">
+                  <ProductCard
+                    key={i}
+                    product={item}
+                    flex={true}
+                    add_description={true}
+                    add_button={false}
+                  />
+                  <div className="car_btn_container">
+                    <button onClick={() => incri(item)}>
+                      <IoIosArrowUp size={30} />
+                    </button>
+                    <span>{item.amount}</span>
+                    <button onClick={() => decri(item.id)}>
+                      <IoIosArrowDown size={30} />
+                    </button>
+                  </div>
+                </section>
               );
             })
           )}
