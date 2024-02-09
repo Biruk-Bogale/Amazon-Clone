@@ -30,8 +30,10 @@ function Product() {
         <Loader />
       ) : (
         <div className="product_container">
-          {products?.map((data, i) => {
-            return <ProductCard product={data} key={i} add_button={true} />;
+          {products?.map((data) => {
+            return (
+              <ProductCard product={data} key={data.id} add_button={true} />
+            );
           })}
         </div>
       )}

@@ -9,7 +9,7 @@ export const reducer = (state, action) => {
     case Type.ADD_TO_BASKET:
       return {
         ...state,
-        basket: [...state.basket, action.items],
+        basket: [...state.basket, action.item ],
       };
 
     default:

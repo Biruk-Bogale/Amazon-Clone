@@ -21,7 +21,7 @@ function Cart() {
           <h3>Your Shopping Basket</h3>
           <hr />
           {basket?.length == 0 ? (
-            <p>Opps ! mo items in your cart</p>
+            <p>Opps ! No items in your cart</p>
           ) : (
             basket?.map((item, i) => {
               return (
