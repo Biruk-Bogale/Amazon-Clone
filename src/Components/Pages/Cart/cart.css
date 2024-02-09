@@ -9,6 +9,10 @@
     width: 100px !important;
 }
 
+.cart_container div:not(.cart_subtotal) {
+    height: auto !important;
+}
+
 .cart_inner {
     padding: 20px;
 }
