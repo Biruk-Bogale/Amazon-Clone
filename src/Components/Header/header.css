@@ -82,6 +82,11 @@ span {
   outline: 1px solid white;
 }
 
+/* .header__search svg{
+  width: 100%;
+  padding: 10px;
+} */
+
 .header__search select {
   border: none;
   /* padding: 12px; */
@@ -98,7 +103,7 @@ span {
 .header__search svg {
   /* padding: 12px; */
   background: #f3a847;
-  width: 25px;
+  max-width: 250px;
   border: 1px solid #f3a847;
   cursor: pointer;
   /* color: white; */
