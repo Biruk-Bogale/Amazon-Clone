@@ -31,7 +31,16 @@ function ProductDetail() {
 
   return (
     <LayOut>
-      {isLoading ? <Loader /> : <ProductCard product={product} flex={true} add_description add_button={true}/>}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ProductCard
+          product={product}
+          flex={true}
+          add_description={true}
+          add_button={true}
+        />
+      )}
     </LayOut>
   );
 }

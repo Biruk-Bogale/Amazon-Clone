@@ -41,7 +41,7 @@ function Results() {
               <ProductCard 
               key={data.id} 
               product={data} 
-              add_description={true}
+              // add_description={true}
               add_button={true}/>
             ))}
             {/* {console.log(results)} */}

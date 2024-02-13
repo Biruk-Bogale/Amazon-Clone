@@ -26,7 +26,7 @@ function Cart() {
 
   const decri = (id) => {
     dispatch({
-      type: Type.REMOVE_FROM_BASKET,
+      type: Type?.REMOVE_FROM_BASKET,
       id,
     });
   };
@@ -34,7 +34,7 @@ function Cart() {
   return (
     <LayOut>
       <section className="cart_container">
-        <div className="cart_inner">
+        <div className="cart_inner" >
           <h2>Hello</h2>
           <h3>Your Shopping Basket</h3>
           <hr />
@@ -45,7 +45,7 @@ function Cart() {
               return (
                 <section className="cart_product">
                   <ProductCard
-                    key={i}
+                    key={item?.id}
                     product={item}
                     flex={true}
                     add_description={true}

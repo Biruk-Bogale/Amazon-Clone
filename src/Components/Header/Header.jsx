@@ -17,7 +17,7 @@ function Header() {
     return item.amount + amount;
   }, 0);
 
-  console.log(basket);
+  // console.log(basket);
 
   return (
     <section className="header_fixed">
