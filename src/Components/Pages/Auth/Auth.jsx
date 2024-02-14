@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import LayOut from "../../LayOut/LayOut";
 import Logo from "../../../assets/amazon_logo2.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./auth.css";
 import { auth } from "../../../Utility/firebas";
 import {
@@ -23,8 +23,11 @@ function Auth() {
 
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
+  const navStateData = useLocation();
 
-  console.log(user);
+  console.log(navStateData);
+
+  //  console.log(user);
 
   // console.log(email, password);
 
@@ -45,7 +48,7 @@ function Auth() {
           });
           setLoading({ ...loading, Sign_in: false });
 
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           // console.log(err.message);
@@ -64,7 +67,7 @@ function Auth() {
           });
           setLoading({ ...loading, Sign_in: false });
 
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           // console.log(err);
@@ -83,6 +86,17 @@ function Auth() {
 
       <div className="SignUP_Box">
         <h1>Sign In</h1>
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}>
+            {navStateData?.state?.msg}
+          </small>
+        )}
         <form action="" className="signUP_Form">
           <div>
             <label htmlFor="">E-mail</label>
@@ -107,8 +121,7 @@ function Auth() {
             type="submit"
             name="Sign_in"
             onClick={authHandler}
-            className="logIn_btn"
-          >
+            className="logIn_btn">
             {loading.Sign_in ? (
               <ClipLoader color="#36d7b7" size={15}></ClipLoader>
             ) : (
@@ -126,8 +139,7 @@ function Auth() {
           type="submit"
           name="Sign_UP"
           onClick={authHandler}
-          className="signUP_btn"
-        >
+          className="signUP_btn">
           {loading.Sign_UP ? (
             <ClipLoader color="#36d7b7" size={15}></ClipLoader>
           ) : (
