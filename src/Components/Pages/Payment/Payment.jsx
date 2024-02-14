@@ -5,6 +5,7 @@ import { DataContext } from "../../DataProvider/DataProvider";
 import ProductCard from "../../../Components/Product/ProductCard";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "../../CurrencyFormat/CurrencyFormat";
+import { axiosInstance } from "../../../Api/axios";
 
 function Payment() {
   const [{ user, basket }] = useContext(DataContext);
@@ -26,6 +27,27 @@ function Payment() {
   const handleChange = (e) => {
     // console.log(e)
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    try {
+      // backend || function --->contact the client secret
+
+      const response = await axiosInstance({
+        method: "POST",
+        url: `/payment/create?total=${total*100}`,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message)
+    }
+
+    // client sede(react side confirmation)
+
+    // after the confirmation ---> orderfirestore database save, clear basket
   };
 
   return (
@@ -61,7 +83,7 @@ function Payment() {
           <h3>Payment Methods</h3>
           <div className="payment_card_container">
             <div className="payment_details">
-              <form action="">
+              <form onSubmit={handlePayment}>
                 {/* error */}
                 {cardError && (
                   <small style={{ color: "red" }}>{cardError}</small>
@@ -77,7 +99,7 @@ function Payment() {
                       <p>Total Order | </p> <CurrencyFormat amount={total} />
                     </span>
                   </div>
-                  <button>Pay Now</button>
+                  <button type="submit">Pay Now</button>
                 </div>
               </form>
             </div>
