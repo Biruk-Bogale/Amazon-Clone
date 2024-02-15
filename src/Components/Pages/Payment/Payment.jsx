@@ -9,9 +9,10 @@ import { axiosInstance } from "../../../Api/axios";
 import { ClipLoader, FadeLoader } from "react-spinners";
 import { db } from "../../../Utility/firebas";
 import { useNavigate } from "react-router-dom";
+import { Type } from "../../../Utility/action.type";
 
 function Payment() {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
 
   const [cardError, setCardError] = useState(null);
 
@@ -72,6 +73,9 @@ function Payment() {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
+
+      // empty the basket
+      dispatch({ type: Type.EMPTY_BASKET });
 
       setLoading(false);
 
@@ -139,7 +143,8 @@ function Payment() {
                           alignItems: "center",
                           justifyContent: "center",
                           color: "grey",
-                        }}>
+                        }}
+                      >
                         <ClipLoader color="grey" size={12} />
                         <p>Please Wait...</p>
                       </div>
